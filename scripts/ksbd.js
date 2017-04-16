@@ -5,7 +5,8 @@ var adjList = ["White","Black","Red","Blue","Green","Aquamarine","Indigo","Golde
 				"Turbulent","Shining","Sorrowful","Ardent","Adamant","Painful","Docile","Frozen",
 				"Burning","Cold","Hot","Verdant","Silent","Hopeful","Endless","Infinite",
 				"Gilded","Paper","Bloody","Recursive","Empty","Questioning","Ambulant","Pure",
-				"Peaceful","Wooden","Living","Glass","Ancient","Blinding","Vengeful","Iridescent"];
+				"Peaceful","Wooden","Living","Glass","Ancient","Blinding","Vengeful","Iridescent",
+				"Righteous"];
 
 var nounList = ["Chain","Blossom","Star","Gaze","Blade","Disc","Stream","River",
 				"Ocean","Mountain","Tower","Temple","Shield","Spear","Flame","Cloud",
@@ -15,7 +16,8 @@ var nounList = ["Chain","Blossom","Star","Gaze","Blade","Disc","Stream","River",
 				"Chariot","Bridge","Flower","Continent","Comet","Diamond","Meteor","Anvil",
 				"Forge","Mask","Student","Feather","Scale","Hand","Eye","Sigil", 
 				"Void","Horizon","World","Sun","Iron","Mist","Abyss","Vortex",
-				"Plague","Drum","Heart","Light","Bird","Veil","Bell","Sound"];
+				"Plague","Drum","Heart","Light","Bird","Veil","Bell","Sound",
+				"Fist"];
 
 var verbsList = ["Subdues","Scours","Punctures","Purges","Accuses","Protects","Combats","Apprehends",
 				"Breaks","Shatters","Heals","Repairs","Engulfs","Questions","Crushes","Perceives",
