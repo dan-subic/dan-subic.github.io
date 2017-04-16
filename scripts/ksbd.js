@@ -6,31 +6,39 @@ var adjList = ["White","Black","Red","Blue","Green","Aquamarine","Indigo","Golde
 				"Burning","Cold","Hot","Verdant","Silent","Hopeful","Endless","Infinite",
 				"Gilded","Paper","Bloody","Recursive","Empty","Questioning","Ambulant","Pure",
 				"Peaceful","Wooden","Living","Glass","Ancient","Blinding","Vengeful","Iridescent",
-				"Righteous"];
+				"Ethereal","Sanguine","Fluorescent","Prismatic","Iron","Ivory","Hollow", "Righteous"];
 
 var nounList = ["Chain","Blossom","Star","Gaze","Blade","Disc","Stream","River",
 				"Ocean","Mountain","Tower","Temple","Shield","Spear","Flame","Cloud",
 				"Storm","Wave","Tide","Tree","Wind","Dome","Tome","Orb",
 				"Rod","Breath","Song","Voice","Word","Thorn","Stone","Concordance",
-				"Spirit","Field","Hammer","Chisel","Coin","Smoke","Crown","Claw",
+				"Spirit","Field","Hammer","Chisel","Vault","Smoke","Crown","Claw",
 				"Chariot","Bridge","Flower","Continent","Comet","Diamond","Meteor","Anvil",
 				"Forge","Mask","Student","Feather","Scale","Hand","Eye","Sigil", 
-				"Void","Horizon","World","Sun","Iron","Mist","Abyss","Vortex",
-				"Plague","Drum","Heart","Light","Bird","Veil","Bell","Sound",
-				"Fist"];
+				"Void","Horizon","World","Sun","Waterfall","Mist","Abyss","Vortex",
+				"Drum","Heart","Light","Bird","Veil","Bell","Sound","Cube",
+				"Sphere","Pyramid", "Fist"];
 
 var verbsList = ["Subdues","Scours","Punctures","Purges","Accuses","Protects","Combats","Apprehends",
 				"Breaks","Shatters","Heals","Repairs","Engulfs","Questions","Crushes","Perceives",
 				"Analyzes","Enlightens","Seals","Defeats","Vanquishes","Queries","Excises","Plunges Into",
 				"Shakes Off","Resists","Shelters","Reveals","Strips the Bones of","Eats","Devours","Cuts",
-				"Shields","Lifts up","Burns","Ignites","Sunders","Smashes","Annihilates","Dresses the Wounds of"];
+				"Shields","Lifts Up","Burns","Ignites","Sunders","Smashes","Annihilates","Dresses the Wounds of",
+				"Cascades Upon","Descends Upon","Plagues","Cleaves","Shames","Rebels Against","Befriends","Betrays",
+				"Seeks"];
 
 var ofNounsList = ["Fate","Evil","the Universe","the Unrepentant","Darkness","the Truthful","the Dishonest","the Fortunate",
 					"the Unfortunate","the Sinful","God","the Gods","the Repentant","the Wise","the Foolish","the Holy",
 					"the Cursed","Civilization","the Dead","the Living","Space-Time","the Wicked","Truth","Reality",
-					"Lies","the Virtuous","Thought","Heretics","Sin","the Faithless","Creation","Faith"];
+					"Lies","the Virtuous","Thought","Heretics","Sin","the Faithless","Creation","Faith",
+					"Doubt","Existence"];
 
 
+var adverbsList = ["Without Remorse","Furiously","Deliciously","With Great Sorrow",
+				"With Glee","With Terrible Purpose","Fervently","Honorably",
+				"Accidentally","In the Proper Manner","With Cunning","Without Hesitation",
+				"With Regret","On a Regular Basis","Solemnly","Viciously",
+				"Gracefully","Tentatively","in Accordance With the Law","With Precision"]; 
 
 var colourList = ["red","orange","yellow","green","blue","indigo","violet","purple",
 					"black","white","teal","gold","silver","grey","brown","pink"];
@@ -40,24 +48,8 @@ var colourList = ["red","orange","yellow","green","blue","indigo","violet","purp
 function generate()
 {
 
-	var num = randNumber();
-	var adj = randSelect(adjList);
-	var noun = generateNoun();
-	var verbs = randSelect(verbsList);
-
-	var finalNoun;
-	var rand = Math.random() * 100;
-	if (rand < 30)
-	{
-		finalNoun = "the " + generateNoun();
-	}
-	else
-	{
-		finalNoun = randSelect(ofNounsList);
-	}
-
 	var stateChecked = document.getElementById("stateBox").checked;
-	var fightStyleChecked = document.getElementById("fightStyleBox").checked;
+	//var fightStyleChecked = document.getElementById("fightStyleBox").checked;
 	var armourChecked = document.getElementById("armourBox").checked;
 	var formChecked = document.getElementById("formBox").checked;
 
@@ -70,14 +62,14 @@ function generate()
 		document.getElementById("state").innerHTML = "";
 	}
 	
-	if (fightStyleChecked === true)
+	/*if (fightStyleChecked === true)
 	{
 		generateFightStyle();
 	}
 	else
 	{
 		document.getElementById("fightStyle").innerHTML = "";
-	}
+	}*/
 
 	if (armourChecked === true)
 	{
@@ -97,8 +89,34 @@ function generate()
 		document.getElementById("form").innerHTML = "";
 	}
 
-	document.getElementById("name").innerHTML = "This angel's name is " + num + ' ' + adj + ' ' + noun + ' ' 
-												+ verbs + ' ' + finalNoun + '.';
+	var finalName = randNumber() + ' ';
+	finalName += randSelect(adjList) + ' ';
+	finalName += randSelect(nounList) + ' ';
+
+	var rand = Math.random() * 100;
+	if (rand < 30)
+	{
+		finalName += "of " + randSelect(ofNounsList) + ' ';
+	}
+
+	finalName += randSelect(verbsList) + ' ';
+
+	if (rand > 70)
+	{
+		finalName += "the " + randSelect(nounList) + " of " + randSelect(ofNounsList);
+	}
+	else
+	{
+		finalName += randSelect(ofNounsList);
+	}
+
+	var rand2 = Math.random() * 100;
+	if (rand2 < 30)
+	{
+		finalName += ' ' + randSelect(adverbsList);
+	}
+
+	document.getElementById("name").innerHTML = "This angel's name is " + finalName + '.';
 
 
 }
@@ -114,18 +132,6 @@ function randNumber()
 
 	return number;
 }
-
-function generateNoun()
-{
-	var num = Math.random() * 100;
-	var noun = randSelect(nounList);
-	if (num < 25)
-	{
-		noun = noun + " of " + randSelect(ofNounsList);
-	}
-	return noun;
-}
-
 
 function generateState()
 {
@@ -194,7 +200,8 @@ function generateArmour()
 								"jagged","unimpressive","simple","rounded","shining","cracked","broken","dirty",
 								"striking","elongated","squat","pointed","bent","rigid","iridescent"];
 
-	var colourDescriptorList = ["pale","dark","dull","muted","soft","subdued","faded","light"];
+	var colourDescriptorList = ["pale","dark","dull","muted","soft","subdued","faded","light",
+								"deep"];
 
 	var featureDescriptorList = ["many","large",randSelect(colourList),"subtle",
 								"unusual","inset","decorative","prominent","small","intricate","mysterious"];
