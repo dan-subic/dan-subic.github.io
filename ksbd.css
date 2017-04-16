@@ -1,19 +1,19 @@
 body {
-	background-color: black;
-	color: white;
+	background-color: #191315;
+	color: #ea2f45;
 	text-align: center;
+	font-family: 'Arial', sans-serif;
 
 }
 
 #bottom {
-	position: fixed;
 	bottom: 5px;
 	text-align: left;
 }
 
 .boxy {
 	margin: auto;
-	width: 20%;
+	width: 15%;
 	text-align: left;
 }
 
@@ -23,9 +23,9 @@ body {
 }
 
 a:link {
-	color: white;
+	color:#d31a42
 }
 
 a:visited {
-	color: white;
+	color:#d31a42
 }
