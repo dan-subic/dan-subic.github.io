@@ -220,7 +220,7 @@ function generateArmour()
 												+ feature + ".";
 }
 
-function generateForm()
+/*function generateForm()
 {
 	// His true form is that of a [colour] 
 	// (mass of [arms/legs/wings/eyes/other body parts])/([human/bird/animal/wheel/chain/etc])
@@ -236,7 +236,7 @@ function generateForm()
 
 	var objectsSingleList = ["wheel","chain","orb","mirror","mask","flame","knife"];
 
-	var creatureList = ["mantis","eagle","serpent","crane","sparrow","bull","spider","tiger",
+	var creatureList = ["mantis","eagle","serpent","crane","sparrow","ox","spider","tiger",
 						"lion","hornet","crab","bear","griffon","manticore","kraken","dragon",
 						"wyvern","lizard","raven"];
 
@@ -256,6 +256,53 @@ function generateForm()
 												+ " where its "
 												+ randSelect(bodyPartsSingleList)
 												+ " might have been.";
+}*/
+
+function generateForm()
+{
+	var creatureList = ["mantis","serpent","ox","spider","tiger","lion","beetle","crab",
+						"bear","goat","fish","lizard", "eel", "fox", "wolf", "squid"];
+
+	var humanOrCreature = ["human",randSelect(creatureList)];
+
+	var bodyPartsSingleList = ["arms","legs","a head","a face","eyes","a mouth","hands","feet",
+								"teeth"];
+
+	var objectsMultipleList = ["wheels","chains","orbs","mirrors","masks","flames","knives"];
+
+	var desc = "His true form is that of a " 
+			+ randSelect(colourList) + " " 
+			+ randSelect(humanOrCreature);
+
+	var modified = false;
+
+	if (randNumber() > 10)
+	{
+		modified = true;
+		desc += " with wings"
+		if (randNumber() < 30)
+		{
+			desc += " for " + randSelect(bodyPartsSingleList);
+		}
+	}
+
+	if (randNumber() > 50)
+	{
+		if (modified)
+		{
+			desc += ", and";
+		}
+		else
+		{
+			desc += " with";
+		}
+
+		desc += " " + randSelect(objectsMultipleList) + " for " + randSelect(bodyPartsSingleList);
+	}
+
+	desc += ".";
+
+	document.getElementById("form").innerHTML = desc;
 }
 
 function randSelect(list)
