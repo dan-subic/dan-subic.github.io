@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+	<head>
+		<title>Map Generator</title>
+		<link rel="stylesheet" type="text/css" href="index.css">
+	</head>
+
+	<body>
+
+		<script src="scripts/map.js"></script>
+
+		<a href="index.html">Home</a>
+		<p>
+
+		<h1>Map Generator</h1>
+		<p>
+		Generates a simple map according to parameters.
+		<br>
+		Be warned, in no way does this accurately model how landmasses are formed.
+		<br>
+		A map will be generated based on the parameters that follow. 
+		<br>At the bottom of the page is a rundown on what each of these parameters does.
+		<p>
+
+		<form>
+	  		Map Width: 
+	  		<input type="number" name="quantity" min="1" step="1" value="150" id="widthForm">
+	  		<br>
+	  		Map Height: 
+	  		<input type="number" name="quantity" min="1" step = "1" value="100" id="heightForm">
+	  		<br>
+	  		Sea Level:
+	  		<input type="number" step="0.1" value="200.0" id="seaForm">
+	  		<br>
+	  		Seed Points:
+	  		<input type="number" name="quantity" min="1" step = "1" value="60" id="platesForm">
+	  		<!-- probably don't actually need this as a parameter- it can just be 0
+	  		<br>
+	  		Average elevation:
+	  		<input type="number" step="0.01" value="0.0" id="elevationForm">-->
+	  		<br>
+	  		Seed Point Deviation:
+	  		<input type="number" min = "0.0" step="0.01" value="60.0" id="conDevForm">
+	  		<br>
+	  		Local Deviation:
+	  		<input type="number" min = "0.0" step="0.01" value="100.0" id="localDevForm">
+	  		<br>
+	  		Smooth Results
+	  		<input type="checkbox" id="smoothForm" checked>
+			
+			<p>
+
+			<button type="button" onclick="generateMap();">Generate!</button>
+			<input type="reset">
+		</form>
+
+		<p id="cv">
+
+		<p>
+		Parameters:
+		<br>
+		Map Width and Map Height determine the dimensions of the map in pixels. Larger maps are more detailed, but will take longer to generate.
+		<br>
+		Sea Level is the height of the sea above the global average. Can be a negative value. Higher values result in a greater water:land ratio, although this is also affected by the Seed Point Deviation and the Local Deviation. At 0, about 50% of the map will be underwater.
+		<br>
+		Seed Points are the points that the map's terrain is generated from. This field determines the number of those points. Higher values result in more diverse maps.
+		<br>
+		Seed Point Deviation is how far seed points can be above or below the global average. 
+		<br>
+		Local Deviation is how much points on the map can vary from their neighbours. Higher values will result in more islands and lakes, and more random coastlines. 
+		<br>
+		Checking the Smooth Results box will remove small islands and lakes, will join very close landmasses, and will round out jagged coastlines. 
+
+		<p>
+		Other notes:
+		<br>
+		As points on the map get further from seed points, they tend more and more to the global average. This means that given all other parameters are the same, landmasses will tend to be about the same size on larger maps as on smaller maps. This isn't ideal, so to counter this I suggest increasing the deviation parameters for larger maps.
+		<br><br>
+		You might notice that edges of landmasses often follow 45 degree diagonal lines. This is a result of the very simplistic algorithm used to generate terrain. Increasing the number of seed points, increasing the local deviation, and checking the Smooth Results box can help to mitigate this effect.
+		<br><br>
+		The maps are NOT generated from a sphere and then projected onto a rectangle. Rather, all points are generated on the rectangle. As a result, things get inaccurate close to the north and south poles. In particular, different regions will meet at A pole, instead of having a singular region over a pole. I intend to do something about that eventually.
+
+
+
+		<!-- <particular id="myCanvas" width="1000" height="800" style="border:1px solid #ffffff;">
+		Your browser does not support the HTML5 canvas tag.
+		</canvas> -->
+
+		<div id="bottom"></div>
+
+	</body>
+
+
+</html>
