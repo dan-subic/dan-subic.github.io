@@ -6,18 +6,19 @@ var adjList = ["White","Black","Red","Blue","Green","Aquamarine","Indigo","Golde
 				"Burning","Cold","Hot","Verdant","Silent","Hopeful","Endless","Infinite",
 				"Gilded","Paper","Bloody","Recursive","Empty","Questioning","Ambulant","Pure",
 				"Peaceful","Wooden","Living","Glass","Ancient","Blinding","Vengeful","Iridescent",
-				"Ethereal","Sanguine","Fluorescent","Prismatic","Iron","Ivory","Hollow", "Righteous"];
+				"Ethereal","Sanguine","Fluorescent","Prismatic","Iron","Ivory","Hollow", "Righteous",
+				"Rising","Falling","Brilliant","Relentless","Judicious"];
 
 var nounList = ["Chain","Blossom","Star","Gaze","Blade","Disc","Stream","River",
 				"Ocean","Mountain","Tower","Temple","Shield","Spear","Flame","Cloud",
 				"Storm","Wave","Tide","Tree","Wind","Dome","Tome","Orb",
-				"Rod","Breath","Song","Voice","Word","Thorn","Stone","Concordance",
+				"Rod","Breath","Song","Voice","Word","Thorn","Stone","Peak",
 				"Spirit","Field","Hammer","Chisel","Vault","Smoke","Crown","Claw",
 				"Chariot","Bridge","Flower","Continent","Comet","Diamond","Meteor","Anvil",
 				"Forge","Mask","Student","Feather","Scale","Hand","Eye","Sigil", 
 				"Void","Horizon","World","Sun","Waterfall","Mist","Abyss","Vortex",
 				"Drum","Heart","Light","Bird","Veil","Bell","Sound","Cube",
-				"Sphere","Pyramid", "Fist"];
+				"Sphere","Pyramid","Fist","Prism","Prison","Cage","Rain","Rune"];
 
 var verbsList = ["Subdues","Scours","Punctures","Purges","Accuses","Protects","Combats","Apprehends",
 				"Breaks","Shatters","Heals","Repairs","Engulfs","Questions","Crushes","Perceives",
@@ -25,20 +26,21 @@ var verbsList = ["Subdues","Scours","Punctures","Purges","Accuses","Protects","C
 				"Shakes Off","Resists","Shelters","Reveals","Strips the Bones of","Eats","Devours","Cuts",
 				"Shields","Lifts Up","Burns","Ignites","Sunders","Smashes","Annihilates","Dresses the Wounds of",
 				"Cascades Upon","Descends Upon","Plagues","Cleaves","Shames","Rebels Against","Befriends","Betrays",
-				"Seeks"];
+				"Seeks","Carves","Sear"];
 
 var ofNounsList = ["Fate","Evil","the Universe","the Unrepentant","Darkness","the Truthful","the Dishonest","the Fortunate",
 					"the Unfortunate","the Sinful","God","the Gods","the Repentant","the Wise","the Foolish","the Holy",
 					"the Cursed","Civilization","the Dead","the Living","Space-Time","the Wicked","Truth","Reality",
 					"Lies","the Virtuous","Thought","Heretics","Sin","the Faithless","Creation","Faith",
-					"Doubt","Existence"];
+					"Doubt","Existence","Morality"];
 
 
 var adverbsList = ["Without Remorse","Furiously","Deliciously","With Great Sorrow",
 				"With Glee","With Terrible Purpose","Fervently","Honorably",
 				"Accidentally","In the Proper Manner","With Cunning","Without Hesitation",
 				"With Regret","On a Regular Basis","Solemnly","Viciously",
-				"Gracefully","Tentatively","in Accordance With the Law","With Precision"]; 
+				"Gracefully","Tentatively","in Accordance With the Law","With Precision",
+				"Grudgingly"]; 
 
 var colourList = ["red","orange","yellow","green","blue","indigo","violet","purple",
 					"black","white","teal","gold","silver","grey","brown","pink"];
@@ -52,6 +54,7 @@ function generate()
 	//var fightStyleChecked = document.getElementById("fightStyleBox").checked;
 	var armourChecked = document.getElementById("armourBox").checked;
 	var formChecked = document.getElementById("formBox").checked;
+	var beliefsChecked = document.getElementById("beliefsBox").checked;
 
 	if (stateChecked === true)
 	{
@@ -87,6 +90,15 @@ function generate()
 	else
 	{
 		document.getElementById("form").innerHTML = "";
+	}
+
+	if (beliefsChecked === true)
+	{
+		generateBeliefs();
+	}
+	else
+	{
+		document.getElementById("beliefs").innerHTML = "";
 	}
 
 	var finalName = randNumber() + ' ';
@@ -303,6 +315,24 @@ function generateForm()
 	desc += ".";
 
 	document.getElementById("form").innerHTML = desc;
+}
+
+function generateBeliefs() 
+{
+	var beliefsList = ["morality","God","the Old Law","reality","Atru","gender roles","the Concordant Harmonies","the Holy Thorn Knights",
+						"the Petal Knights","Throne","the universe","humanity","art","emotion","logic","truth",
+						"his enemies"];
+
+	var positivesList = ["loves","respects","is devoted to","has faith in","is inspired by"];
+
+	var negativesList = ["rejects","does not believe in","is digusted by","hates","wishes to destroy"];
+
+	var belief = "He " + randSelect(positivesList) + " " + randSelect(beliefsList) 
+				+ ", but " + randSelect(negativesList) + " " + randSelect(beliefsList) + ".";
+
+	document.getElementById("beliefs").innerHTML = belief;
+
+
 }
 
 function randSelect(list)
