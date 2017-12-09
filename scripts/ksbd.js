@@ -18,7 +18,8 @@ var nounList = ["Chain","Blossom","Star","Gaze","Blade","Disc","Stream","River",
 				"Forge","Mask","Student","Feather","Scale","Hand","Eye","Sigil", 
 				"Void","Horizon","World","Sun","Waterfall","Mist","Abyss","Vortex",
 				"Drum","Heart","Light","Bird","Veil","Bell","Sound","Cube",
-				"Sphere","Pyramid","Fist","Prism","Prison","Cage","Rain","Rune"];
+				"Sphere","Pyramid","Fist","Prism","Prison","Cage","Rain","Rune",
+				"Bone"];
 
 var verbsList = ["Subdues","Scours","Punctures","Purges","Accuses","Protects","Combats","Apprehends",
 				"Breaks","Shatters","Heals","Repairs","Engulfs","Questions","Crushes","Perceives",
@@ -26,7 +27,7 @@ var verbsList = ["Subdues","Scours","Punctures","Purges","Accuses","Protects","C
 				"Shakes Off","Resists","Shelters","Reveals","Strips the Bones of","Eats","Devours","Cuts",
 				"Shields","Lifts Up","Burns","Ignites","Sunders","Smashes","Annihilates","Dresses the Wounds of",
 				"Cascades Upon","Descends Upon","Plagues","Cleaves","Shames","Rebels Against","Befriends","Betrays",
-				"Seeks","Carves","Sear"];
+				"Seeks","Carves","Sears","Cracks"];
 
 var ofNounsList = ["Fate","Evil","the Universe","the Unrepentant","Darkness","the Truthful","the Dishonest","the Fortunate",
 					"the Unfortunate","the Sinful","God","the Gods","the Repentant","the Wise","the Foolish","the Holy",
@@ -321,7 +322,7 @@ function generateBeliefs()
 {
 	var beliefsList = ["morality","God","the Old Law","reality","Atru","gender roles","the Concordant Harmonies","the Holy Thorn Knights",
 						"the Petal Knights","Throne","the universe","humanity","art","emotion","logic","truth",
-						"his enemies"];
+						"his enemies","war","peace","violence"];
 
 	var positivesList = ["loves","respects","is devoted to","has faith in","is inspired by"];
 
